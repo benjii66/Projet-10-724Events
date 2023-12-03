@@ -7,7 +7,6 @@ import "./style.scss";
 import EventList from "../../containers/Events";
 import Slider from "../../containers/Slider";
 import Logo from "../../components/Logo";
-import Icon from "../../components/Icon";
 import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
@@ -23,7 +22,7 @@ const Page = () => {
         <Slider />
       </section>
       <section className="ServicesContainer">
-        <h2 className="Title">Nos services</h2>
+        <h2 className="Title" id="nos-services">Nos services</h2>
         <p>Nous organisons des événements sur mesure partout dans le monde</p>
         <div className="ListContainer">
           <ServiceCard imageSrc="/images/priscilla-du-preez-Q7wGvnbuwj0-unsplash1.png">
@@ -52,11 +51,11 @@ const Page = () => {
         </div>
       </section>
       <section className="EventsContainer">
-        <h2 className="Title">Nos réalisations</h2>
+        <h2 className="Title" id="nos-realisations">Nos réalisations</h2>
         <EventList />
       </section>
       <section className="PeoplesContainer">
-        <h2 className="Title">Notre équipe</h2>
+        <h2 className="Title" id="notre-equipe">Notre équipe</h2>
         <p>Une équipe d’experts dédiés à l’ogranisation de vos événements</p>
         <div className="ListContainer">
           <PeopleCard
@@ -116,32 +115,28 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
-        <EventCard
-          imageSrc={last? last.cover : "https://media.istockphoto.com/id/538665020/fr/photo/m%C3%A8me-internet-pourquoi-vous-non-rage-face-illustration-3d.jpg?s=2048x2048&w=is&k=20&c=aJXDwyFWqoOhTsmsDgKiXovGwB_gAVWkGd7u3-gMZUU="}
-          title={last ? last?.title : "héhé titre"}
-          date={new Date(last?.date)}
-          small
-          label="boom"
-        />
+        {
+          last && (
+            <EventCard
+              imageSrc={last.cover}
+              title={last.title}
+              date={new Date(last.date)}
+              small
+              label="boom"
+            />
+          )
+        }
+       
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>
-        <address aria-label="Adresse">45 avenue de la République, 75000 Paris</address>
-        <div aria-label="Numéro de téléphone" >01 23 45 67 89</div>
-        <div aria-label="Adresse e-mail">contact@77events.com</div>
+        <address>45 avenue de la République, 75000 Paris</address>
+        <div>01 23 45 67 89</div>
+        <div>contact@77events.com</div>
         <div>
-          <a href="#twitch" aria-label="Lien vers Twitch">
-            <Icon name="twitch" />
-          </a>
-          <a href="#facebook" aria-label="Lien vers Facebook">
-            <Icon name="facebook" />
-          </a>
-          <a href="#twitter" aria-label="Lien vers Twitter">
-            <Icon name="twitter" />
-          </a>
-          <a href="#youtube" aria-label="Lien vers YouTube">
-            <Icon name="youtube" />
-          </a>
+        <a href="#twitch" aria-label="Lien vers Twitch"/>
+        <a href="#facebook" aria-label="Lien vers facebook"/>
+        <a href="#youtube" aria-label="Lien vers youtube"/>
         </div>
       </div>
       <div className="col description">
