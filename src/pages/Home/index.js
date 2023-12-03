@@ -10,6 +10,7 @@ import Logo from "../../components/Logo";
 import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
+import Icon from "../../components/Icon";
 
 const Page = () => {
   const {last} = useData()
@@ -134,9 +135,10 @@ const Page = () => {
         <div>01 23 45 67 89</div>
         <div>contact@77events.com</div>
         <div>
-        <a href="#twitch" aria-label="Lien vers Twitch"/>
-        <a href="#facebook" aria-label="Lien vers facebook"/>
-        <a href="#youtube" aria-label="Lien vers youtube"/>
+          <Icon name="twitch"/>
+          <Icon name="facebook"/>
+          <Icon name="twitter"/>
+          <Icon name="youtube"/>
         </div>
       </div>
       <div className="col description">
