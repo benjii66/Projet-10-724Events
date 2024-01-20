@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useData } from "../../contexts/DataContext";
 import { getMonth } from "../../helpers/Date";
 
@@ -12,15 +12,16 @@ const Slider = () => {
     new Date(evtB.date) < new Date(evtA.date) ? 1 : -1
   )
 
-  const nextCard = () => {
+const nextCard = useCallback(() => {
     setTimeout(
       () => setIndex(index + 1 < byDateDesc?.length ? index + 1 : 0),
       5000
     )
-  }
+  }, [index, byDateDesc])
+  
   useEffect(() => {
     nextCard()
-  })
+  }, [nextCard])
    
   const generateId = () => Math.random().toString(36).substr(2, 9);
   
